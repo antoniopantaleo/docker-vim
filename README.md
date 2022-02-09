@@ -1,6 +1,10 @@
 # VIM in Docker
 
  My personal vim customization, running in a lightweight docker container
+ 
+ ```
+ docker pull ghcr.io/antoniopantaleo/vim:latest
+ ```
 
 ## Features
 
