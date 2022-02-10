@@ -27,13 +27,18 @@ The image was built on top of `alpine` and uses plugins installed via [Vim-Plug]
 
 ## How to use it
 
-Copy or (better) make a symbolic link of `vim` script inside `/usr/local/bin`
+Copy or (better) make a symbolic link of `vim` script inside `~/.local/bin`
 
 ```
-$ cp vim /usr/local/bin
+$ cp vim ~/.local/bin
 ```
 
 ```
-$ ln -s /my/absolute/path/vim /usr/local/bin
+$ ln -s /my/absolute/path/vim ~/.local/bin
 ```
 > Absolute path may be necessary if you have vim already globally installed
+
+Remember to source `~/.local/bin` from your rc (e.g. `.bashrc`, `.zshrc`)
+```
+export PATH="$HOME/.local/bin/:$PATH"
+```
