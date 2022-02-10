@@ -13,8 +13,7 @@ VOL=$PWD
 
 if [[ -n $@ ]]
 then
-    MY_PATH=$(echo "$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")")
-    VOL=$(dirname "$MY_PATH")
+    VOL="$(cd "$(dirname "$1")" && pwd -P)"
     docker run --rm -ti -v $VOL:/home ghcr.io/antoniopantaleo/vim:latest $(basename $1)
 else
     docker run --rm -ti -v $VOL:/home ghcr.io/antoniopantaleo/vim:latest
