@@ -1,6 +1,10 @@
 # VIM in Docker
 
  My personal vim customization, running in a lightweight docker container
+ 
+ ```
+ docker pull ghcr.io/antoniopantaleo/vim:latest
+ ```
 
 ## Features
 
@@ -42,3 +46,4 @@ Remember to source `~/.local/bin` from your rc (e.g. `.bashrc`, `.zshrc`)
 ```
 export PATH="$HOME/.local/bin/:$PATH"
 ```
+
