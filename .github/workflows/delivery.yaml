@@ -5,7 +5,7 @@ on:
     branches: ["master"]
 
 jobs:
-  check-tag:
+  make-tag:
     runs-on: ubuntu-latest
     
     steps:
@@ -24,10 +24,8 @@ jobs:
           git push --tags
     
   delivery:
-    needs: check-tag
+    needs: make-tag
     runs-on: ubuntu-latest
-    env:
-      VERSION: $(cat VERSION)
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -46,4 +44,4 @@ jobs:
           install: true
       - name: Build and push
         run: |
-          docker buildx build --file ./Dockerfile --platform ${{ steps.qemu.outputs.platforms }} --tag ghcr.io/antoniopantaleo/vim:latest --tag ghcr.io/antoniopantaleo/vim:$(cat VERSION) --push .
+          docker buildx build --file ./Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/antoniopantaleo/vim:latest --tag ghcr.io/antoniopantaleo/vim:$(cat VERSION) --push .
