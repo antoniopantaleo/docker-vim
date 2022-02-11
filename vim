@@ -14,7 +14,7 @@ VOL=$PWD
 if [[ -n $@ ]]
 then
     VOL="$(cd "$(dirname "$1")" && pwd -P)"
-    docker run --rm -ti -v $VOL:/home ghcr.io/antoniopantaleo/vim:latest $(basename $1)
+    docker run --rm -ti -v "$VOL":/home ghcr.io/antoniopantaleo/vim:latest "$(basename $1)"
 else
-    docker run --rm -ti -v $VOL:/home ghcr.io/antoniopantaleo/vim:latest
+    docker run --rm -ti -v "$VOL":/home ghcr.io/antoniopantaleo/vim:latest
 fi
