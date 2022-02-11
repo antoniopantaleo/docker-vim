@@ -45,10 +45,7 @@ jobs:
         with:
           install: true
       - name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          platforms: ${{ steps.qemu.outputs.platforms }}
-          tags: ghcr.io/antoniopantaleo/vim:latest,ghcr.io/antoniopantaleo/vim:${{ env.VERSION }}
+        run: |
+          docker build --platform ${{ steps.qemu.outputs.platforms }} -t ghcr.io/antoniopantaleo/vim:latest -t ghcr.io/antoniopantaleo/vim:$(cat VERSION) .
+          docker push ghcr.io/antoniopantaleo/vim:latest
+          docker push ghcr.io/antoniopantaleo/vim:$(cat VERSION)
