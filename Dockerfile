@@ -1,5 +1,5 @@
 FROM alpine:latest
-LABEL mantainer="Antonio Pantaleo <antonio_pantaleo@icloud.com>"
+LABEL maintainer="Antonio Pantaleo <antonio_pantaleo@icloud.com>"
 LABEL org.opencontainers.image.description="Run vim in a lightweight docker container"
 LABEL org.opencontainers.image.url="https://github.com/antoniopantaleo/docker-vim"
 RUN apk update && apk add git curl vim
