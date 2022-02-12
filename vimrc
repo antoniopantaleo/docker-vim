@@ -14,8 +14,6 @@ set nomodeline
 syntax on
 autocmd BufRead APKBUILD set filetype=sh
 
-
-"
 " plugins
 call plug#begin()
 Plug 'tpope/vim-sensible'
@@ -176,9 +174,10 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let NERDTreeIgnore = ['\.pyc$', '__pycache__', '.DS_Store']
 let NERDTreeMinimalUI = 1
-let g:nerdtree_open = 0
+let NERDTreeShowHidden=1
+
 nnoremap <C-t> :NERDTreeToggle<CR>
 
 " syntastic

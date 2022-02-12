@@ -44,4 +44,4 @@ jobs:
           install: true
       - name: Build and push
         run: |
-          docker buildx build --file ./Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/antoniopantaleo/vim:latest --tag ghcr.io/antoniopantaleo/vim:$(cat VERSION) --push .
+          docker buildx build --file ./Dockerfile --platform linux/arm64,linux/amd64,linux/ppc64le,linux/s390x,linux/386,linux/arm/v7,linux/arm/v6 --tag ghcr.io/antoniopantaleo/vim:latest --tag ghcr.io/antoniopantaleo/vim:$(cat VERSION) --push .
